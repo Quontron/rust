@@ -1,0 +1,19 @@
+@startuml
+skin rose
+actor Operator
+Participant GuessingGame
+Operator -> GuessingGame : Starts the game by running the rust program
+GuessingGame -> Operator: Explains the game, is waiting\n for a response from operator
+Operator -> GuessingGame : Number guess between 1 and 100
+alt too low
+GuessingGame -> GuessingGame : Grabs the input value and\n compares with the secret number
+GuessingGame -> Operator : Response: Too low! Please input your guess.
+else too high
+GuessingGame -> GuessingGame : Grabs the input value and\n compares with the secret number
+GuessingGame -> Operator : Response: Too High! Please input your guess.
+else just right
+GuessingGame -> GuessingGame : Grabs the input value and\n compares with the secret number
+GuessingGame -> Operator : Response: You Win! *exits the program*.
+end
+
+@enduml
